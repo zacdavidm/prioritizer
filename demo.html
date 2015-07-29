@@ -1,0 +1,65 @@
+<!Doctype HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Prioritizer Demo</title>
+  <style>
+  body{
+    max-width:600px;
+    margin:0 auto;
+  }
+
+  ul.feature{
+    margin:0;
+    padding:0;
+  }
+
+  ul.feature li{
+    float:left;
+    margin:0;
+    box-sizing:border-box;
+    list-style:none;
+    padding:10px;
+    width:50%;
+  }
+
+  ul.feature li img{
+    display:none;
+  }
+
+  ul.feature li:first-child{
+    width:100%;
+  }
+
+  ul.feature li:first-child img{
+    display:block;
+  }
+
+
+  </style>
+</head>
+<body>
+
+  <ul class="feature" data-prioritize="UTM_CAMPAIGN">
+    <li data-prioritize-watch="apples">
+      <img src="http://dummyimage.com/600x400/a3a3a3/fff&text=apples" alt="apples">
+      <h1>Apples</h1>
+      <p>The round fruit of a tree of the rose family, which typically has thin red or green skin and crisp flesh. Many varieties have been developed as dessert or cooking fruit or for making cider.</p>
+    </li>
+    <li data-prioritize-watch="bananas">
+      <img src="http://dummyimage.com/600x400/a3a3a3/fff&text=bananas" alt="bananas">
+      <h1>Bananas</h1>
+      <p>A long curved fruit that grows in clusters and has soft pulpy flesh and yellow skin when ripe.</p>
+    </li>
+    <li data-prioritize-watch="oranges">
+      <img src="http://dummyimage.com/600x400/a3a3a3/fff&text=oranges" alt="oranges">
+      <h1>Oranges</h1>
+      <p>A round juicy citrus fruit with a tough bright reddish-yellow rind.</p>
+    </li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="prioritizer.js"></script>
+
+</body>
+</html>
