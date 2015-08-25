@@ -43,9 +43,12 @@
 </head>
 <body>
   <p class="lead">
-    Test out prioritizer by adding ?UTM_CAMPAIGN= to the url and set the parameter equal to 'apples' (default, no difference), 'bananas', or 'oranges' and watch prioritizer re-prioritize content;
+    Test out prioritizer by adding ?utm_campaign= to the url and set the parameter equal to <a href="?utm_campaign=apples">'apples'</a> (default), <a href="?utm_campaign=bananas">'bananas'</a>, or <a href="?utm_campaign=oranges">'oranges'</a> and watch prioritizer re-prioritize content;
   </p>
-  <ul class="feature" data-prioritize="UTM_CAMPAIGN">
+  <p>
+    Now supports using variables, localStorage, sessionStorage, and inputs as keys!
+  </p>
+  <ul class="feature" data-prioritize='{"method":"GET","key":"utm_campaign"}'>
     <li data-prioritize-watch="apples">
       <img src="http://dummyimage.com/600x400/a3a3a3/fff&text=apples" alt="apples">
       <h1>Apples</h1>
@@ -62,8 +65,50 @@
       <p>A round juicy citrus fruit with a tough bright reddish-yellow rind.</p>
     </li>
   </ul>
-
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <hr style="clear:both">
+  <ul data-prioritize='{"method":"variable","key":"most_important"}'>
+    <li data-prioritize-watch="first">
+      <h2>First</h2>
+    </li>
+    <li data-prioritize-watch="second">
+      <h2>Second</h2>
+    </li>
+    <li data-prioritize-watch="third">
+      <h2>Third</h2>
+    </li>
+  </ul>
+  <ul data-prioritize='{"method":"localStorage","key":"position"}'>
+    <li data-prioritize-watch="one">
+      <h2>Number 1</h2>
+    </li>
+    <li data-prioritize-watch="two">
+      <h2>Number 2</h2>
+    </li>
+    <li data-prioritize-watch="three">
+      <h2>Number 3</h2>
+    </li>
+  </ul>
+  <ul data-prioritize='{"method":"sessionStorage","key":"middle_name"}'>
+    <li data-prioritize-watch="foo">
+      <h2>Foo</h2>
+    </li>
+    <li data-prioritize-watch="bar">
+      <h2>Bar</h2>
+    </li>
+    <li data-prioritize-watch="baz">
+      <h2>Baz</h2>
+    </li>
+  </ul>
+  <script>
+    var most_important="second";
+    if(typeof(Storage) !== "undefined") {
+      localStorage.setItem("position", "three");
+    }
+    if(typeof(Storage) !== "undefined") {
+      sessionStorage.setItem("middle_name", "baz");
+    }
+  </script>
+  <script src="jquery-2.1.4.min.js"></script>
   <script src="prioritizer.js"></script>
 
 </body>
